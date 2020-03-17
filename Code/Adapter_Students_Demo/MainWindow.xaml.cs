@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Adapter_Students_Demo.Adapters;
 using Structural_BLL;
 
 namespace Adapter_Students_Demo
@@ -16,9 +17,10 @@ namespace Adapter_Students_Demo
 
             _studentsReadService = new StudentsReadService();
 
-            // It will display only the Id, because the UI expects each student to have "FirstName" and "LastName" properties
+			// We need an adapter because otherwise
+            // it will display only the Id, because the UI expects each student to have "FirstName" and "LastName" properties
             // but in reality, the models returned by the BLL have "Name" and "Surname"
-            listViewStudents.ItemsSource = _studentsReadService.GetAllStudents();
+            listViewStudents.ItemsSource = StudentAdapter.ConvertStudentsToViewModels(_studentsReadService.GetAllStudents());
         }
     }
 }
