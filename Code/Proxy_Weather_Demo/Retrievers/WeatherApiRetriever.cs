@@ -20,7 +20,7 @@ namespace Proxy_Weather_Demo.Retrievers
         public double? GetPredictionForDate(string cityId, DateTime referenceDate)
         {
             var predictions = GetPredictionsForCity(cityId);
-            return predictions.GetPredictionByDate(DateTime.Now)?.TemperatureInCelsius;
+            return predictions.GetPredictionByDate(referenceDate)?.TemperatureInCelsius;
         }
 
         public List<Prediction> GetPredictionsForCity(string cityId)

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\File.cs" />
     <Compile Include="Classes\Folder.cs" />
+    <Compile Include="Classes\IDiskItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

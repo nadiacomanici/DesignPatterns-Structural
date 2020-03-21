@@ -8,10 +8,10 @@ namespace Composite_Files_Demo
     {
         static void Main(string[] args)
         {
-            var readMeFile = new File("readme.txt", 130);
-            var instructionsDoc = new File("instructions.doc", 3200);
-            var fileGit = new File("file.git", 50);
-            List<File> files = new List<File>() { readMeFile, instructionsDoc, fileGit };
+            var root = new Folder("app");
+            root.Add(new File("readme.txt", 130));
+            root.Add(new File("instructions.doc", 3200));
+            root.Add(new File("file.git", 50));
 
             var folderVisualStudio = new Folder("ProjectFolder");
             folderVisualStudio.Add(new File("app.config", 215));
@@ -20,30 +20,13 @@ namespace Composite_Files_Demo
 
             var folderSolution = new Folder("Properties");
             folderSolution.Add(new File("AssemblyInfo.cs", 56));
+            folderVisualStudio.Add(folderSolution);
 
-            int totalSizeInKB = 0;
+            root.Add(folderVisualStudio);
 
-            foreach (var file in files)
-            {
-                totalSizeInKB += file.SizeInKB;
-                file.Display(0);
-            }
+            root.Display(0);
 
-            Console.WriteLine($" + {folderVisualStudio.Name}");
-            foreach (var file in folderVisualStudio.Files)
-            {
-                totalSizeInKB += file.SizeInKB;
-                file.Display(1);
-            }
-
-            Console.WriteLine($" + {folderSolution.Name}");
-            foreach (var file in folderSolution.Files)
-            {
-                totalSizeInKB += file.SizeInKB;
-                file.Display(1);
-            }
-
-            Console.WriteLine($"Total size: {totalSizeInKB} KB");
+            Console.WriteLine($"Total size: {root.SizeInKB} KB");
         }
     }
 }

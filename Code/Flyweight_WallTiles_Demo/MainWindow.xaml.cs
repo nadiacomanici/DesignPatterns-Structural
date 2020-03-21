@@ -21,6 +21,8 @@ namespace Flyweight_WallTiles_Demo
 
         private void FillWallWithTiles()
         {
+            FactoryTile factoryTile = new FactoryTile();
+            
             var tileWidth = 60;
             var tileHeight = 60;
 
@@ -29,8 +31,8 @@ namespace Flyweight_WallTiles_Demo
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new MarbleTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = factoryTile.GetTile(TileType.Marble, tileWidth, tileHeight);
+                    tile.AddTileOnWall(wall,x,y);
                 };
             }
 
@@ -38,8 +40,8 @@ namespace Flyweight_WallTiles_Demo
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new SquaresTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = factoryTile.GetTile(TileType.Squares, tileWidth, tileHeight);
+                    tile.AddTileOnWall(wall,x,y);
                 };
             }
 
@@ -47,8 +49,8 @@ namespace Flyweight_WallTiles_Demo
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new DotsTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = factoryTile.GetTile(TileType.Dots, tileWidth, tileHeight);
+                    tile.AddTileOnWall(wall,x,y);
                 };
             }
 

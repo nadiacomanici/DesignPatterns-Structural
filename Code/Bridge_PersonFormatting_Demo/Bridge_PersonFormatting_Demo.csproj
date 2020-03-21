@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formatters\StudentJsonFormatter.cs" />
-    <Compile Include="Formatters\StudentXmlFormatter.cs" />
-    <Compile Include="Formatters\PersonXmlFormatter.cs" />
-    <Compile Include="Formatters\PersonJsonFormatter.cs" />
+    <Compile Include="FormattedObjects\FormattedObject.cs" />
+    <Compile Include="FormattedObjects\FormattedPerson.cs" />
+    <Compile Include="FormattedObjects\FormattedStudent.cs" />
+    <Compile Include="Formatters\IFormatter.cs" />
+    <Compile Include="Formatters\XmlFormatter.cs" />
+    <Compile Include="Formatters\JsonFormatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,5 +65,6 @@
       <Name>Structural_Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

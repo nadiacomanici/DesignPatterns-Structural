@@ -1,27 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Composite_Files_Demo.Classes
 {
-    public class Folder
+    public class Folder : IDiskItem
     {
         public string Name { get; set; }
 
-        public List<File> Files { get; private set; }
+        public List<IDiskItem> Items { get; private set; }
+        public int SizeInKB
+        {
+            get
+            {
+                return Items.Sum(t => t.SizeInKB);
+            }
+        }
 
         public Folder(string name)
         {
-            Files = new List<File>();
+            Items = new List<IDiskItem>();
             Name = name;
         }
 
-        public void Add(File file)
+        public void Add(IDiskItem item)
         {
-            Files.Add(file);
+            Items.Add(item);
         }
 
-        public void Remove(File file)
+        public void Remove(IDiskItem item)
         {
-            Files.Remove(file);
+            Items.Remove(item);
+        }
+
+        public void Display(int indent)
+        {
+            Console.WriteLine($"{new String(' ', indent)} + {Name}");
+            foreach (var item in Items)
+            {
+                item.Display(indent + 1);
+            }
         }
     }
 }

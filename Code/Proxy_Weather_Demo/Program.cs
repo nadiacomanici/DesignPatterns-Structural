@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Threading;
 using Proxy_Weather_Demo.Retrievers;
 
@@ -9,10 +8,9 @@ namespace Proxy_Weather_Demo
     {
         static void Main(string[] args)
         {
-            string apiKey = ConfigurationManager.AppSettings.Get("weatherApiKey");
             string brasovId = "683843";
 
-            var weatherAPI = new WeatherApiRetriever(apiKey);
+            var weatherAPI = new WeatherProxyRetriever();
             Console.WriteLine($"---> I have an object for weather");
 
             while (true)

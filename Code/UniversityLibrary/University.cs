@@ -3,7 +3,7 @@
 namespace UniversityLibrary
 {
     // The Facade
-    public class University
+    public class University : IUniversity
     {
         private MentorsDepartment _mentorsDepartment;
         private Secretariat _secretariat;

@@ -9,10 +9,6 @@ namespace Flyweight_WallTiles_Demo.Tiles
         public static int InstancesCount;
 
         public string ImageUrl { get; protected set; }
-
-        public int X { get; protected set; }
-        public int Y { get; protected set; }
-
         public int Height { get; protected set; }
         public int Width { get; protected set; }
 
@@ -21,7 +17,7 @@ namespace Flyweight_WallTiles_Demo.Tiles
             InstancesCount++;
         }
 
-        public void AddTileOnWall(Canvas wall)
+        public void AddTileOnWall(Canvas wall, int x, int y)
         {
             Image image = new Image()
             {
@@ -29,8 +25,8 @@ namespace Flyweight_WallTiles_Demo.Tiles
                 Width = this.Width,
                 Height = this.Height
             };
-            Canvas.SetLeft(image, this.X);
-            Canvas.SetTop(image, this.Y);
+            Canvas.SetLeft(image, x);
+            Canvas.SetTop(image, y);
             wall.Children.Add(image);
         }
     }

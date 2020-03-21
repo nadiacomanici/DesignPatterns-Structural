@@ -7,7 +7,7 @@ namespace Facade_University
     {
         static void Main(string[] args)
         {
-            var university = new University();
+            IUniversity university = new University();
 
             university.RegisterStudent("Nadia", "Comanici");
             university.RegisterStudent("Ion", "Ionescu");

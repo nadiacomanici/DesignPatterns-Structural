@@ -1,4 +1,5 @@
 ﻿using System;
+using Bridge_PersonFormatting_Demo.FormattedObjects;
 using Bridge_PersonFormatting_Demo.Formatters;
 using Structural_Models;
 
@@ -13,26 +14,28 @@ namespace Bridge_PersonFormatting_Demo
 
             // person json formatting
             Console.WriteLine("-------- Person as JSON ---------------");
-            var formatterJson = new PersonJsonFormatter();
-            Console.WriteLine(formatterJson.GetFormattedObject(person));
+            var formattedPerson = new FormattedPerson(person);
+            formattedPerson.Formatter = new JsonFormatter();
+            Console.WriteLine(formattedPerson.GetFormattedObject());
             Console.WriteLine();
 
             // person xml formatting
             Console.WriteLine("--------Person as  XML ---------------");
-            var formatterXml = new PersonXmlFormatter();
-            Console.WriteLine(formatterXml.GetFormattedObject(person));
+            formattedPerson.Formatter = new XmlFormatter();
+            Console.WriteLine(formattedPerson.GetFormattedObject());
             Console.WriteLine();
 
             // student json formatting
             Console.WriteLine("-------- Student as JSON ---------------");
-            var formatterStudentJson = new StudentJsonFormatter();
-            Console.WriteLine(formatterStudentJson.GetFormattedObject(student));
+            var formattedStudent = new FormattedStudent(student);
+            formattedStudent.Formatter = new JsonFormatter();
+            Console.WriteLine(formattedStudent.GetFormattedObject());
             Console.WriteLine();
 
             // student xml formatting
             Console.WriteLine("-------- Student as XML ---------------");
-            var formatterStudentXml = new StudentXmlFormatter();
-            Console.WriteLine(formatterStudentXml.GetFormattedObject(student));
+            formattedStudent.Formatter = new XmlFormatter();
+            Console.WriteLine(formattedStudent.GetFormattedObject());
             Console.WriteLine();
         }
     }

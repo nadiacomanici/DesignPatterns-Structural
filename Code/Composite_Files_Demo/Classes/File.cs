@@ -2,7 +2,7 @@
 
 namespace Composite_Files_Demo.Classes
 {
-    public class File
+    public class File : IDiskItem
     {
         public string Name { get; set; }
         public int SizeInKB { get; set; }
