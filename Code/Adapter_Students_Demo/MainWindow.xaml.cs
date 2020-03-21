@@ -16,8 +16,8 @@ namespace Adapter_Students_Demo
 
             _studentsReadService = new StudentsReadService();
 
-            // It will display only the Id, because the UI expects each student to have "FirstName" and "LastName" properties
-            // but in reality, the models returned by the BLL have "Name" and "Surname"
+            // It will display only the Id, because the UI expects each student to have properties "Name" and "Surname"
+            // but in reality, the models returned by the BLL have "FirstName" and "LastName" 
             listViewStudents.ItemsSource = _studentsReadService.GetAllStudents();
         }
     }

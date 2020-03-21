@@ -8,7 +8,7 @@ namespace Adapter_Students_End.Adapters
     {
         private StudentViewModel GetStudentViewModel(Student student)
         {
-            return new StudentViewModel(student.Id, student.Name, student.Surname);
+            return new StudentViewModel(student.Id, student.FirstName, student.LastName);
         }
 
         public IEnumerable<StudentViewModel> GetStudentViewModelList(IEnumerable<Student> students)
