@@ -1,18 +1,20 @@
-﻿namespace Structural_Models
+﻿using System;
+
+namespace Structural_Models
 {
-    public class Student
+    [Serializable]
+    public class Student : Person
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public string Name { get; private set; }
+        public Student()
+        {
 
-        public string Surname { get; private set; }
+        }
 
-        public Student(int id, string name, string surname)
+        public Student(int id, string name, string surname) : base(name, surname)
         {
             Id = id;
-            Name = name;
-            Surname = surname;
         }
     }
 }
