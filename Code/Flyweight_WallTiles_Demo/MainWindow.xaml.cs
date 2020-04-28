@@ -8,9 +8,12 @@ namespace Flyweight_WallTiles_Demo
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TileFactory tileFactory;
+
         public MainWindow()
         {
             InitializeComponent();
+            tileFactory = new TileFactory();
             Loaded += MainWindow_Loaded;
         }
 
@@ -24,13 +27,14 @@ namespace Flyweight_WallTiles_Demo
             var tileWidth = 60;
             var tileHeight = 60;
 
+
             var thirdWidth = (int)(wall.ActualWidth / 3);
             for (int x = 0; x < thirdWidth; x = x + tileWidth)
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new MarbleTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = tileFactory.GetTileByType(TileType.Marble);
+                    tile.AddTileOnWall(wall, x, y, tileWidth, tileHeight);
                 };
             }
 
@@ -38,8 +42,8 @@ namespace Flyweight_WallTiles_Demo
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new SquaresTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = tileFactory.GetTileByType(TileType.Squares);
+                    tile.AddTileOnWall(wall, x, y, tileWidth, tileHeight);
                 };
             }
 
@@ -47,8 +51,8 @@ namespace Flyweight_WallTiles_Demo
             {
                 for (int y = 0; y < wall.ActualHeight; y = y + tileHeight)
                 {
-                    var tile = new DotsTile(x, y, tileWidth, tileHeight);
-                    tile.AddTileOnWall(wall);
+                    var tile = tileFactory.GetTileByType(TileType.Dots);
+                    tile.AddTileOnWall(wall, x, y, tileWidth, tileHeight);
                 };
             }
 

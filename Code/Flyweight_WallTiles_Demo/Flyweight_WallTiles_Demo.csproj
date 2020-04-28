@@ -59,6 +59,7 @@
     <Compile Include="Tiles\MarbleTile.cs" />
     <Compile Include="Tiles\SquaresTile.cs" />
     <Compile Include="Tiles\Tile.cs" />
+    <Compile Include="Tiles\TileFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
